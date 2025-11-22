@@ -52,12 +52,14 @@ export default function Page() {
         </p>
       )}
       {poem && <PoemView poem={poem} />}
-      <BookButton
-        onClick={handleGenerate}
-        opening={opening}
-        disabled={loading}
-        label="Generate today's poem"
-      />
+      {!poem && (
+        <BookButton
+          onClick={handleGenerate}
+          opening={opening}
+          disabled={loading}
+          label="Generate today's poem"
+        />
+      )}
     </main>
   );
 }

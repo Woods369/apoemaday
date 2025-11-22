@@ -9,7 +9,7 @@ export default {
   // https://vike.dev/head-tags
   title: "My Vike App",
 
-  description: "Demo showcasing Vike",
+  description: "Discover a new poem every day. Grow. Share. Inspire.",
   extends: [vikeReact, vikePhoton],
   prerender: true,
 } satisfies Config;
