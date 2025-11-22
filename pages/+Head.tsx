@@ -1,7 +1,9 @@
-// https://vike.dev/Head
-
-import logoUrl from "../assets/logo.svg";
-
-export default function HeadDefault() {
-  return <link rel="icon" href={logoUrl} />;
+export default function Head() {
+  return (
+    <>
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta name="description" content="Discover a new poem every day" />
+      <link rel="icon" href="/favicon.ico" />
+    </>
+  );
 }
