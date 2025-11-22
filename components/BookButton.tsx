@@ -21,7 +21,7 @@ export function BookButton(props: Props) {
         <div className="book-cover" />
         <div className="book-spine" />
         <div className="book-edge" />
-        <div className="book-label">Generate</div>
+        <div className="book-label">View Today's Poem</div>
       </div>
     </button>
   );

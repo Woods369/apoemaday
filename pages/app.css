@@ -23,7 +23,7 @@ body {
 
 .poem-wrap {
   width: 100%;
-  max-width: 56rem;
+  max-width: 1560px;
   margin: 0 auto;
   padding: 1rem;
 }
@@ -60,6 +60,7 @@ body {
   line-height: 1.85;
   word-wrap: break-word;
   white-space: pre-wrap;
+  column-count: 2;
 }
 
 .poem-lines p { margin: 0; }
