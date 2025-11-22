@@ -1,55 +1,46 @@
-Generated with [vike.dev/new](https://vike.dev/new) ([version 516](https://www.npmjs.com/package/create-vike/v/0.0.516)) using this command:
+# A Poem A Day 📖
 
-```sh
-npm create vike@latest --- --react --tailwindcss --vercel --eslint
+A minimalist web app that presents a daily poem from [PoetryDB](https://poetrydb.org) with a beautiful book-opening animation.
+
+## Features
+
+- 📚 **Brown Book Button** - Click to reveal today's poem with a smooth opening animation
+- 🎯 **Deterministic Daily Poems** - Everyone sees the same poem on the same day (UTC-based)
+- 📱 **Mobile-First Design** - Button positioned at bottom for easy thumb reach
+- ⚡ **Performance Optimized** - localStorage caching, idle prefetching
+- ♿ **Accessible** - Keyboard navigation, ARIA labels, reduced-motion support
+- 🎨 **Beautiful Typography** - Merriweather serif for poems, Inter for UI
+
+## Tech Stack
+
+- **Framework**: [Vike](https://vike.dev) (React SSR)
+- **Styling**: TailwindCSS + Custom CSS3 animations
+- **API**: [PoetryDB](https://poetrydb.org)
+- **Deployment**: Vercel
+
+## Local Development
+
+```bash
+npm install
+npm run dev
 ```
 
-## Contents
+## Deploy to Vercel
 
-* [Vike](#vike)
+```bash
+npm install -g vercel
+vercel login
+vercel --prod
+```
 
-  * [Plus files](#plus-files)
-  * [Routing](#routing)
-  * [SSR](#ssr)
-  * [HTML Streaming](#html-streaming)
+## How It Works
 
-* [Photon](#photon)
+1. Click the brown book button at the bottom
+2. Book opens with a 3D CSS animation
+3. Today's poem appears (title, author, lines)
+4. Same poem for everyone on the same UTC day
+5. Cached in localStorage to avoid refetching
 
-## Vike
+## License
 
-This app is ready to start. It's powered by [Vike](https://vike.dev) and [React](https://react.dev/learn).
-
-### Plus files
-
-[The + files are the interface](https://vike.dev/config) between Vike and your code.
-
-* [`+config.ts`](https://vike.dev/settings) — Settings (e.g. `<title>`)
-* [`+Page.tsx`](https://vike.dev/Page) — The `<Page>` component
-* [`+data.ts`](https://vike.dev/data) — Fetching data (for your `<Page>` component)
-* [`+Layout.tsx`](https://vike.dev/Layout) — The `<Layout>` component (wraps your `<Page>` components)
-* [`+Head.tsx`](https://vike.dev/Head) - Sets `<head>` tags
-* [`/pages/_error/+Page.tsx`](https://vike.dev/error-page) — The error page (rendered when an error occurs)
-* [`+onPageTransitionStart.ts`](https://vike.dev/onPageTransitionStart) and `+onPageTransitionEnd.ts` — For page transition animations
-
-### Routing
-
-[Vike's built-in router](https://vike.dev/routing) lets you choose between:
-
-* [Filesystem Routing](https://vike.dev/filesystem-routing) (the URL of a page is determined based on where its `+Page.jsx` file is located on the filesystem)
-* [Route Strings](https://vike.dev/route-string)
-* [Route Functions](https://vike.dev/route-function)
-
-### SSR
-
-SSR is enabled by default. You can [disable it](https://vike.dev/ssr) for all or specific pages.
-
-### HTML Streaming
-
-You can [enable/disable HTML streaming](https://vike.dev/stream) for all or specific pages.
-
-## Photon
-
-[Photon](https://photonjs.dev) is a next-generation server and deployment toolkit.
-It supports popular deployments ([self-hosted](https://photonjs.dev/self-hosted), [Cloudflare](https://photonjs.dev/cloudflare), [Vercel](https://photonjs.dev/vercel), and [more](https://photonjs.dev/deploy))
-and popular servers ([Hono](https://photonjs.dev/hono), [Express](https://photonjs.dev/express), [Fastify](https://photonjs.dev/fastify), and [more](https://photonjs.dev/server)).
-
+MIT
