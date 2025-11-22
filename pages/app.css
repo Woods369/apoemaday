@@ -1,0 +1,172 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Inter:wght@400;600&display=swap');
+
+:root {
+  --book-brown: #6b4f3a;
+  --book-brown-dark: #5a3f2e;
+  --book-gold: #c9a44c;
+  --page-ivory: #f8f3e7;
+  --ink: #2b2b2b;
+  --shadow: rgba(0,0,0,0.18);
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  color: var(--ink);
+  background: #faf8f5;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, Apple Color Emoji, Segoe UI Emoji;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.poem-wrap {
+  width: 100%;
+  max-width: 56rem;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.poem-card {
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 6px 18px var(--shadow);
+  padding: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .poem-card { padding: 2rem; }
+}
+
+.poem-title {
+  font-family: Merriweather, Georgia, serif;
+  font-size: clamp(1.5rem, 4vw, 2.25rem);
+  line-height: 1.2;
+  letter-spacing: 0.2px;
+  margin-bottom: 0.35rem;
+}
+
+.poem-author {
+  font-size: 0.95rem;
+  letter-spacing: 0.4px;
+  color: #6b7280;
+  margin-bottom: 1rem;
+}
+
+.poem-lines {
+  font-family: Merriweather, Georgia, serif;
+  font-size: clamp(1rem, 2.6vw, 1.125rem);
+  line-height: 1.85;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+}
+
+.poem-lines p { margin: 0; }
+.poem-lines p + p { margin-top: 0.25rem; }
+
+.book-btn {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 88px;
+  z-index: 50;
+
+  width: clamp(160px, 42vw, 240px);
+  height: 72px;
+
+  perspective: 900px;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.book-btn-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  background: var(--page-ivory);
+  box-shadow: 0 8px 22px var(--shadow), inset 0 0 0 1px rgba(0,0,0,0.05);
+  overflow: hidden;
+}
+
+.book-cover {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--book-brown), var(--book-brown-dark));
+  border-radius: 10px;
+  transform-origin: left center;
+  transform: rotateY(0deg);
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.15);
+}
+
+.book-spine {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 14px;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(0,0,0,0.2), rgba(255,255,255,0.06));
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.book-edge {
+  position: absolute;
+  right: 6px;
+  top: 8px;
+  bottom: 8px;
+  width: 6px;
+  background: repeating-linear-gradient(
+    90deg,
+    #efe6d6 0px,
+    #efe6d6 2px,
+    #e6dbc7 2px,
+    #e6dbc7 4px
+  );
+  border-radius: 2px;
+  filter: brightness(0.98);
+}
+
+.book-label {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: #f5e9cc;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 0.95rem;
+  user-select: none;
+}
+
+.book-btn:focus-visible .book-cover {
+  outline: 3px solid #2563eb;
+  outline-offset: 2px;
+}
+
+.book-btn:active .book-btn-inner {
+  transform: translateY(1px);
+}
+
+.book-btn.opening .book-cover {
+  animation: book-open 900ms cubic-bezier(.2, .8, .2, 1) forwards;
+}
+
+@keyframes book-open {
+  0%   { transform: rotateY(0deg); }
+  55%  { transform: rotateY(-140deg); }
+  100% { transform: rotateY(-170deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .book-btn.opening .book-cover { animation: none; }
+}
+
+@media (min-height: 740px) {
+  .book-btn { bottom: 100px; }
+}
+
+@media (max-height: 640px) {
+  .book-btn { bottom: 72px; }
+}
